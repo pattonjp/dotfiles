@@ -32,11 +32,8 @@ do
 done
 
 # initialize autocomplete here, otherwise functions won't be loaded
-autoload -Uz compinit
-for dump in ~/.zcompdump(N.mh+24); do
-  compinit
-done
-compinit -C
+autoload -U compinit
+compinit 
 
 # load every completion after autocomplete loads
 for file in ${(M)config_files:#*/completion.zsh}
@@ -55,11 +52,8 @@ zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
 
-if [[ -a ~/.docker_env ]]
-then
-  source ~/.docker_env
-fi
-
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
-export PATH="$(brew --prefix)/bin:$PATH"
-
+# export PATH="$(brew --prefix)/bin/:$PATH"
+if [ -x "$(command -v hub)" ]; then
+  eval "$(hub alias -s)"
+fi
