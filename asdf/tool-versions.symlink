@@ -1,0 +1,8 @@
+helm 2.16.1
+golang 1.16.5
+golangci-lint 1.40.1
+kubectx 0.9.3
+kubectl 1.19.11
+k3d 4.3.0
+kubeval v0.16.1
+argocd 2.0.4
